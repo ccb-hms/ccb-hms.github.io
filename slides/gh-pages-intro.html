@@ -1,0 +1,130 @@
+---
+layout: remark-ccb
+title: 'GitHub Pages: A Short Primer'
+author: Deepayan Sarkar
+mathjax: true
+---
+
+
+# Background
+
+- GitHub is a good place to share long-from reports, especially works in progress
+
+	- Markdown documents are rendered nicely as HTML
+
+	- Handles links, figures, etc.
+
+	- CCB uses it extensively
+	
+- Drawbacks
+
+	- No custom HTML / styles / Javascript
+
+--
+
+- We wanted to make some searchable tables publicly available (requires javascript)
+
+- One option is to use the CCB Harvard website (but coordination with project teams may be difficult)
+
+--
+
+- Convenient alternative: [GitHub Pages](https://pages.github.com/)
+
+---
+
+# GitHub Pages: Structure
+
+
+- One "main" page per user / organization: <https://ccb-hms.github.io>
+
+- Every project can set up a sub-page: <https://ccb-hms.github.io/phonto/>
+	
+- Each sub-page can be modified independently
+
+---
+
+# GitHub Pages: Summary
+
+- Designate a particular folder or branch as GH Pages branch
+
+- For the most part, works as a standard web server
+
+- Most files, including HTML files, are served in usual manner
+
+--
+
+- The most __interesting__ aspect is that is supports [Jekyll](https://jekyllrb.com/)
+
+	- Describes itself as a "simple, blog-aware, static site generator"
+	
+	- Like wordpress, but using markdown files as source
+	
+---
+
+# Demo / Examples
+
+- Main CCB page: 
+
+	- Website: <https://ccb-hms.github.io/> 
+	
+	- Source: <https://github.com/ccb-hms/ccb-hms.github.io/>
+
+- Phonto sub-page:
+
+	- Website: <https://ccb-hms.github.io/phonto/> 
+	
+	- Source: <https://github.com/ccb-hms/phonto>/docs
+
+--
+
+- Official docs: <https://docs.github.com/en/pages/quickstart>
+
+- Some more details about Jekyll below
+
+---
+
+# Jekyll
+
+- Converts markdown to HTML
+
+- Can be run locally (written in ruby) — to preview or generate static version
+
+- GitHub Pages converts markdown / HTML pages automatically
+
+- Generated HTML files do not need not be stored in `git` repository
+
+--
+
+- Supports templates
+
+- Supports some programmatic content 
+
+- Uses a template language called Liquid <https://shopify.github.io/liquid/>
+
+---
+
+# Jekyll basics
+
+- Document-specific variables defined through YML metadata in markdown files
+
+- Available as nested lists in template file, e.g. <code>{</code><code>{ page.title }</code><code>}</code>, as in
+
+
+- The <code>{</code><code>{ ... }</code><code>}</code> and <code>{</code><code>% ... %</code><code>}</code> blocks are examples of [Liquid](https://jekyllrb.com/docs/liquid/)
+
+- The template itself is specifed as the [`template`](https://github.com/ccb-hms/ccb-hms.github.io/) variable
+
+- The main (markdown / HTML) content is available as the `content` variable
+
+---
+
+# Examples: Table of contents using Liquid
+
+- Templates can include other files, which is very useful
+
+- Example: <https://github.com/ccb-hms/phonto/blob/main/docs/_layouts/default.html#L53>
+
+- Liquid can do more [complicated things](https://github.com/allejo/jekyll-toc) (but I wouldn't recommend it unless really needed)
+
+
+
